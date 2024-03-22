@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Working with JavaScript in the Browser - embedding scripts</title>
+    <script>
+        // This is a JavaScript comment, single line
+        console.log("Hello Floppy Ears");
+    </script>
+</head>
+
+<body>
+    <p>When this page is loaded by a web browser, it will process the JavaScript statements contained within the script
+        tags</p>
+    <p>Open up developer tools to see the console log output on the console panel.</p>
+    <script>
+        // Write out a Message to the console
+        console.log("Good Day Fluffy Tail");
+    </script>
+
+    <!-- 
+        When the browser encounters a block of JavaScript, 
+        it generally runs it in order, from top to bottom. 
+        This means that you need to be careful what order you put things in. 
+    -->
+
+    <script>
+        // We can have multiple script blocks in a page
+        // Each script tag will be executed in turn one by one
+        console.log("G'Day Jelly Bean");
+    </script>
+
+    <script>
+        /*
+            This is a JavaScript comment, multi line
+
+            Did you know diarrhea is hereditary?
+
+            it runs in your jeans.
+        */
+    </script>
+</body>
+
+</html>
