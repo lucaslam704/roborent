@@ -27,21 +27,18 @@ let duration = 0;
 
 // INSERT YOUR CODE HERE
 
-function recalculate()
-{
-    let costLabel = document.getElementById("calculated-cost");
+    function recalculate()
+    {
+        let costLabel = document.getElementById("calculated-cost");
 
-    if (modelName == "XYZ") 
-    {
-        costLabel = duration * 100;
+        if (modelName == "XYZ") {
+            costLabel = duration * 100;
+        } else if (modelName == "CPRG") {
+            costLabel = duration * 213;
+        }             
+        
+        document.getElementById("calculated-cost").innerHTML = costLabel;
     }
-    else if (modelName == "CPRG") 
-    {
-        costLabel = duration * 213;
-    }             
-    
-    document.getElementById("calculated-cost").innerHTML = costLabel;
-}
 
 
 
@@ -59,26 +56,25 @@ function recalculate()
 
 // INSERT YOUR CODE HERE
 
-let SwitchModel = document.getElementById("model-button");
-SwitchModel.addEventListener("click", changeModel);
+window.onload=function() {
 
-function changeModel()
-{
-    let modelText = document.getElementById('model-text');
+        let SwitchModel = document.getElementById("model-button");
+        SwitchModel.addEventListener("click", changeModel);
+    
 
-    if (modelName == "XYZ") 
-    { 
-        modelName = "CPRG";
-        modelText.innerHTML = "Model CPRG";
-    }
-    else if (modelName == "CPRG")
+    function changeModel()
     {
-        modelName = "XYZ"; 
-        modelText.innerHTML = "Model XYZ";
-    }
+        let modelText = document.getElementById('model-text');
 
-    recalculate();
-}
+        if (modelName == "XYZ") { 
+            modelName = "CPRG";
+            modelText.innerHTML = "Model CPRG";
+        } else if (modelName == "CPRG") {
+            modelName = "XYZ"; 
+            modelText.innerHTML = "Model XYZ";
+        }
+        recalculate();
+    }
 
 /****************** duration button logic ******************/
 /*  - first, create a variable to represent the "Change Duration" pseudo-button.
@@ -92,3 +88,16 @@ function changeModel()
 */
 
 // INSERT YOUR CODE HERE
+
+        let changeDurationButton = document.getElementById('duration-button');
+        changeDurationButton.addEventListener("click", changeDuration);
+
+    function changeDuration()
+    {
+        let durationText = document.getElementById("duration-text");
+        duration = prompt("How many days do you want to rent?");
+        durationText.innerHTML = duration;
+
+        recalculate();
+    }
+}
